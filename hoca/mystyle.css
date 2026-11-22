@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Khung hồ cá toàn màn hình */
+#content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('images/bg1.jpg'), linear-gradient(180deg, #1ca3ec 0%, #0b4f8a 65%, #052647 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Cụm nút điều khiển góc trên bên phải */
+#controls {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 999;
+  display: flex;
+  gap: 10px;
+}
+
+#controls button {
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgba(0, 45, 90, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+#controls button:hover {
+  background-color: rgba(0, 120, 215, 0.9);
+}
+
+#controls button:active {
+  transform: scale(0.97);
+}
+
+/* ================= 1. CÁ MẬP (Bơi nhanh, đụng tường quay đầu) ================= */
+#shark {
+  position: absolute;
+  left: 5%;
+  top: 55%;
+  z-index: 5;
+  animation-name: Shark;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+#shark img {
+  width: 240px;
+  height: auto;
+}
+
+@keyframes Shark {
+  0%   { left: 2%;  top: 55%; transform: scaleX(1); }
+  25%  { left: 42%; top: 35%; transform: scaleX(1); }
+  48%  { left: 78%; top: 20%; transform: scaleX(1); }
+  50%  { left: 78%; top: 20%; transform: scaleX(-1); }
+  75%  { left: 40%; top: 45%; transform: scaleX(-1); }
+  98%  { left: 2%;  top: 55%; transform: scaleX(-1); }
+  100% { left: 2%;  top: 55%; transform: scaleX(1); }
+}
+
+/* ================= 2. RÙA BIỂN (Bơi chậm hơn cá mập, đụng tường quay đầu) ================= */
+#turtle {
+  position: absolute;
+  left: 80%;
+  top: 72%;
+  z-index: 4;
+  animation-name: Turtle;
+  animation-duration: 22s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+#turtle img {
+  width: 140px;
+  height: auto;
+}
+
+@keyframes Turtle {
+  0%   { left: 82%; top: 72%; transform: scaleX(-1); }
+  48%  { left: 5%;  top: 66%; transform: scaleX(-1); }
+  50%  { left: 5%;  top: 66%; transform: scaleX(1); }
+  98%  { left: 82%; top: 72%; transform: scaleX(1); }
+  100% { left: 82%; top: 72%; transform: scaleX(-1); }
+}
+
+/* ================= 3. BA THỢ LẶN (Lặn xuống và nổi lên ở các độ sâu/tốc độ khác nhau) ================= */
+#diver1 {
+  position: absolute;
+  left: 15%;
+  top: 12%;
+  z-index: 3;
+  animation: Diver1 14s ease-in-out infinite;
+}
+
+#diver1 img {
+  width: 120px;
+  height: auto;
+}
+
+@keyframes Diver1 {
+  0%   { left: 15%; top: 12%; transform: scaleX(1); }
+  48%  { left: 32%; top: 58%; transform: scaleX(1); }
+  50%  { left: 32%; top: 58%; transform: scaleX(-1); }
+  98%  { left: 15%; top: 12%; transform: scaleX(-1); }
+  100% { left: 15%; top: 12%; transform: scaleX(1); }
+}
+
+#diver2 {
+  position: absolute;
+  left: 52%;
+  top: 62%;
+  z-index: 3;
+  animation: Diver2 16s ease-in-out infinite;
+}
+
+#diver2 img {
+  width: 115px;
+  height: auto;
+}
+
+@keyframes Diver2 {
+  0%   { left: 52%; top: 62%; transform: scaleX(1); }
+  48%  { left: 68%; top: 18%; transform: scaleX(1); }
+  50%  { left: 68%; top: 18%; transform: scaleX(-1); }
+  98%  { left: 52%; top: 62%; transform: scaleX(-1); }
+  100% { left: 52%; top: 62%; transform: scaleX(1); }
+}
+
+#diver3 {
+  position: absolute;
+  left: 72%;
+  top: 25%;
+  z-index: 3;
+  animation: Diver3 19s ease-in-out infinite;
+}
+
+#diver3 img {
+  width: 110px;
+  height: auto;
+}
+
+@keyframes Diver3 {
+  0%   { left: 72%; top: 25%; transform: scaleX(-1); }
+  48%  { left: 45%; top: 68%; transform: scaleX(-1); }
+  50%  { left: 45%; top: 68%; transform: scaleX(1); }
+  98%  { left: 72%; top: 25%; transform: scaleX(1); }
+  100% { left: 72%; top: 25%; transform: scaleX(-1); }
+}
+
+/* ================= 4. HAI ĐÀN CÁ (Bơi ngang qua lại) ================= */
+#goldFishSchool {
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  z-index: 2;
+  animation: GoldFish 17s linear infinite;
+}
+
+#goldFishSchool img {
+  width: 160px;
+  height: auto;
+}
+
+@keyframes GoldFish {
+  0%   { left: 8%;  top: 25%; transform: scaleX(1); }
+  48%  { left: 82%; top: 32%; transform: scaleX(1); }
+  50%  { left: 82%; top: 32%; transform: scaleX(-1); }
+  98%  { left: 8%;  top: 25%; transform: scaleX(-1); }
+  100% { left: 8%;  top: 25%; transform: scaleX(1); }
+}
+
+#faintSchool {
+  position: absolute;
+  left: 75%;
+  top: 45%;
+  z-index: 1;
+  opacity: 0.85;
+  animation: FaintFish 25s linear infinite;
+}
+
+#faintSchool img {
+  width: 180px;
+  height: auto;
+}
+
+@keyframes FaintFish {
+  0%   { left: 78%; top: 45%; transform: scaleX(-1); }
+  48%  { left: 10%; top: 40%; transform: scaleX(-1); }
+  50%  { left: 10%; top: 40%; transform: scaleX(1); }
+  98%  { left: 78%; top: 45%; transform: scaleX(1); }
+  100% { left: 78%; top: 45%; transform: scaleX(-1); }
+}
+
+/* ================= 5. BONG BÓNG NƯỚC (Chỉ bay hướng lên trên) ================= */
+.bubble {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.15));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 6;
+  animation: BubbleUp linear infinite;
+}
+
+.b1 { left: 18%; width: 16px; height: 16px; animation-duration: 7s; animation-delay: 0s; }
+.b2 { left: 36%; width: 24px; height: 24px; animation-duration: 9s; animation-delay: 2s; }
+.b3 { left: 55%; width: 14px; height: 14px; animation-duration: 6s; animation-delay: 1s; }
+.b4 { left: 74%; width: 22px; height: 22px; animation-duration: 8s; animation-delay: 3s; }
+.b5 { left: 88%; width: 18px; height: 18px; animation-duration: 7.5s; animation-delay: 1.5s; }
+
+@keyframes BubbleUp {
+  0%   { bottom: -40px; opacity: 0.8; transform: translateX(0); }
+  50%  { transform: translateX(12px); }
+  100% { bottom: 105vh; opacity: 0; transform: translateX(-8px); }
+}

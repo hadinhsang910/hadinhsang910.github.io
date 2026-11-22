@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Hồ cá vui nhộn</title>
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+  <div id="content">
+    <!-- Cụm nút điều khiển nâng cao ở góc trên bên phải -->
+    <div id="controls">
+      <button type="button" id="btn-bg">Đổi cảnh nền (1/3)</button>
+      <button type="button" id="btn-music">Phát nhạc</button>
+    </div>
+
+    <!-- Nhạc nền -->
+    <audio id="bg-music" src="audio/music.mp3" loop></audio>
+
+    <!-- Các nhân vật trong hồ cá -->
+    <div id="shark">
+      <img src="images/shark.png" alt="Cá mập">
+    </div>
+
+    <div id="turtle">
+      <img src="images/turtle.png" alt="Rùa biển">
+    </div>
+
+    <div id="diver1">
+      <img src="images/diver1.png" alt="Thợ lặn 1">
+    </div>
+
+    <div id="diver2">
+      <img src="images/diver2.png" alt="Thợ lặn 2">
+    </div>
+
+    <div id="diver3">
+      <img src="images/diver3.png" alt="Thợ lặn 3">
+    </div>
+
+    <div id="goldFishSchool">
+      <img src="images/goldFishSchool.png" alt="Đàn cá vàng">
+    </div>
+
+    <div id="faintSchool">
+      <img src="images/faintSchool.png" alt="Đàn cá nhỏ">
+    </div>
+
+    <!-- Bong bóng nước bay lên từ đáy hồ -->
+    <div class="bubble b1"></div>
+    <div class="bubble b2"></div>
+    <div class="bubble b3"></div>
+    <div class="bubble b4"></div>
+    <div class="bubble b5"></div>
+  </div>
+
+  <script>
+    // 1. Chức năng chuyển đổi 3 cảnh nền luân phiên
+    const backgrounds = [
+      "url('images/bg1.jpg'), linear-gradient(180deg, #1ca3ec 0%, #0b4f8a 65%, #052647 100%)",
+      "url('images/bg2.jpg'), linear-gradient(180deg, #2ec4b6 0%, #0f6880 65%, #063142 100%)",
+      "url('images/bg3.jpg'), linear-gradient(180deg, #4895ef 0%, #243b82 65%, #11183d 100%)"
+    ];
+    let currentBg = 0;
+
+    const content = document.getElementById("content");
+    const btnBg = document.getElementById("btn-bg");
+
+    btnBg.addEventListener("click", function () {
+      currentBg = (currentBg + 1) % backgrounds.length;
+      content.style.backgroundImage = backgrounds[currentBg];
+      btnBg.textContent = `Đổi cảnh nền (${currentBg + 1}/${backgrounds.length})`;
+    });
+
+    // 2. Chức năng phát / ngừng nhạc nền
+    const music = document.getElementById("bg-music");
+    const btnMusic = document.getElementById("btn-music");
+
+    btnMusic.addEventListener("click", function () {
+      if (music.paused) {
+        music.play().then(() => {
+          btnMusic.textContent = "Ngừng nhạc";
+        }).catch(() => {
+          alert("Chưa tìm thấy file audio/music.mp3 trong thư mục dự án!");
+        });
+      } else {
+        music.pause();
+        btnMusic.textContent = "Phát nhạc";
+      }
+    });
+  </script>
+</body>
+</html>
