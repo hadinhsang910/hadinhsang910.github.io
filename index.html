@@ -5,69 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bài tập Thiết kế Web - Hà Đình Sáng</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f0f2f5;
-      color: #212529;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      min-height: 100vh;
+      margin: 0;
     }
-
-    .menu-box {
-      width: 100%;
-      max-width: 420px;
-      background-color: #ffffff;
+    .box {
+      background: #ffffff;
+      padding: 32px 28px;
+      border-radius: 10px;
       border: 1px solid #d0d7de;
-      border-radius: 8px;
-      padding: 28px 24px;
+      width: 100%;
+      max-width: 400px;
       text-align: center;
     }
-
-    .menu-box h1 {
-      font-size: 20px;
-      margin-bottom: 6px;
+    h1 {
+      font-size: 22px;
+      margin: 0 0 6px;
+      color: #111827;
     }
-
-    .sub {
+    p {
       font-size: 14px;
-      color: #57606f;
-      margin-bottom: 20px;
+      color: #6b7280;
+      margin: 0 0 24px;
     }
-
-    .btn {
+    a {
       display: block;
-      width: 100%;
-      padding: 12px 16px;
+      padding: 13px 16px;
       margin-bottom: 12px;
       background-color: #1e90ff;
       color: #ffffff;
       text-decoration: none;
-      font-size: 15px;
       font-weight: bold;
       border-radius: 6px;
+      font-size: 15px;
     }
-
-    .btn:hover {
+    a:hover {
       background-color: #187bcd;
     }
   </style>
 </head>
 <body>
-  <div class="menu-box">
+  <div class="box">
     <h1>Bài tập Thiết kế Web</h1>
-    <p class="sub">Hà Đình Sáng</p>
-
-    <a class="btn" href="cv/index.html">6.1.3 - Thiết kế mẫu CV cá nhân</a>
-    <a class="btn" href="hoca/ho_ca.html">6.1.1 - Hồ cá vui nhộn</a>
+    <p>Hà Đình Sáng</p>
+    <a href="cv/index.html">CV</a>
+    <a href="hoca/ho_ca.html">Hồ cá</a>
   </div>
 </body>
 </html>
